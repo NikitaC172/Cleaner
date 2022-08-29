@@ -57,7 +57,7 @@ public class Cleaner : MonoBehaviour
             throw new System.Exception($"Нет основной текстуры на объекте {_gameObject}");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //gameObject.transform.position.x
 

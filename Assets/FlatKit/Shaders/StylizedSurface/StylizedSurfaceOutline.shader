@@ -105,6 +105,9 @@
         Tags {
             "RenderType"="Opaque"
         }
+
+        Tags { "Queue"="Geometry-2" }
+
         LOD 200
 
         CGPROGRAM

@@ -15,12 +15,12 @@ Shader "Unlit/ShaderForClean"
         Tags {"Queue"="AlphaTest" }
         //Tags { "RenderType" = "Transparent" "IgnoreProjector"="True" "Queue" = "Transparent" }
         LOD 300
-        Zwrite Off
+        Zwrite On//Off
 
         Pass
         {
             Blend SrcAlpha OneMinusSrcAlpha
-            Zwrite off
+            Zwrite Off//off
 
             CGPROGRAM
             #pragma vertex vert
