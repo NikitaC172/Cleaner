@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
     private Rigidbody _rigidbody;
     private int _layerDefault = 0;
     private int _layerInHole = 6;
+    private float delay = 1.5f;
     private bool _isMove = false;
 
     public event UnityAction<int> Destroyed;
@@ -37,12 +38,14 @@ public class Item : MonoBehaviour
 
             _isMove = true;
             gameObject.layer = _layerInHole;
+            _rigidbody.isKinematic = false;
             _rigidbody.useGravity = true;
             _collider.isTrigger = false;
             Vector3 _position = hole.GetAttractionPoint().position - transform.position;
             _rigidbody.AddForce((_position) *2f, ForceMode.VelocityChange);
             //_rigidbody.rotation =  new Quaternion(_position.x,_position.y,_position.z, 0f);
             _rigidbody.AddTorque(_position, ForceMode.Impulse);
+            Invoke(nameof(ResetLayer), delay);
             //_rigidbody.rotation =  new Quaternion(0f,1f,0f, 0f);
             //StartCoroutine(MoveToPoint(hole.GetAttractionPoint()));
         }
@@ -62,6 +65,15 @@ public class Item : MonoBehaviour
             //_collider.isTrigger = true;
         }
     }*/
+
+    private void ResetLayer()
+    {
+        gameObject.layer = _layerDefault;
+        _rigidbody.isKinematic = true;
+        _rigidbody.useGravity = false;
+        _collider.isTrigger = true;
+        _isMove = false;
+    }
 
     private IEnumerator MoveToPoint(Transform _point)
     {

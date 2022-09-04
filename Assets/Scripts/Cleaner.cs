@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class Cleaner : MonoBehaviour
 {
+    [SerializeField] private Init _init;
     [SerializeField] private int _circleSize;
     [SerializeField] private Texture2D _mainTexture;
     [SerializeField] private int _maskTextureResolution;
@@ -20,9 +21,20 @@ public class Cleaner : MonoBehaviour
     private Texture2D _maskTexture;
     private MeshCollider _collider;
     private MeshRenderer _renderer;
+    private Upgrader _upgrader;
 
     public int TotalMaskPixels => _maskTextureResolution * _maskTextureResolution;
     public int TotalClearedPixels { get; private set; }
+
+    private void Awake()
+    {
+        _upgrader = _init.GetUpgrader();
+    }
+
+    private void OnEnable()
+    {
+        _upgrader.ChangedSize += ChangeRadius;
+    }
 
     private void Start()
     {
@@ -47,6 +59,17 @@ public class Cleaner : MonoBehaviour
         _maskTexture.Apply();
     }
 
+    private void OnDisable()
+    {
+        _upgrader.ChangedSize -= ChangeRadius;
+    }
+
+    private void ChangeRadius(float deltaRadius)
+    {
+        int percent = 100;
+        _circleSize += (int)(deltaRadius * percent);
+    }
+
     private void OnValidate()
     {
         if (_maskTextureResolution < 128)
@@ -68,8 +91,8 @@ public class Cleaner : MonoBehaviour
         //int rayPointX = (int)(_offsetX - _gameObject.transform.localPosition.x * _maskTexture.width);
         //int rayPointY = (int)(_offsetZ - _gameObject.transform.localPosition.z * _maskTexture.height);
 
-        _pointX = (int)(_offsetX + transform.position.x - _gameObject.transform.position.x * _maskTexture.width*(1/3.5f));
-        _pointZ = (int)(_offsetZ + transform.position.y - _gameObject.transform.position.z * _maskTexture.height*(1/3.5f));
+        _pointX = (int)(_offsetX + transform.position.x - _gameObject.transform.position.x * _maskTexture.width * (1 / 3.5f));
+        _pointZ = (int)(_offsetZ + transform.position.y - _gameObject.transform.position.z * _maskTexture.height * (1 / 3.5f));
 
         //int rayPointX = (int)(_offsetX );
         //int rayPointY = (int)(_offsetZ  );
