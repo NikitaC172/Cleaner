@@ -117,9 +117,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7138072123749821409}
     m_Modifications:
+    - target: {fileID: 2857118453844843544, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4821988469119550189, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851021129125940210, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011086207305680871, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516406272525847200, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804052390080404321, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6937063552284850473, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
       propertyPath: m_RootOrder
@@ -176,6 +196,18 @@ PrefabInstance:
     - target: {fileID: 7714303492106429331, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731529393126492906, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480959959894979649, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623303503536496546, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0606bc27f62a1834ca0086cc54c0b7d1, type: 3}
@@ -248,3 +280,5 @@ MonoBehaviour:
   _weight: 1
   _collider: {fileID: 0}
   _timeForMovePoint: 0.5
+  _delay: 1.5
+  _forceImpulse: 2

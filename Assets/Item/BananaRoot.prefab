@@ -165,13 +165,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6679394377963573126, guid: 547400f6a54bcd444bab376ef8345a9d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7295160555702116330, guid: 547400f6a54bcd444bab376ef8345a9d, type: 3}
       propertyPath: m_Size.x
       value: 0.049137365
       objectReference: {fileID: 0}
     - target: {fileID: 7295160555702116330, guid: 547400f6a54bcd444bab376ef8345a9d, type: 3}
+      propertyPath: m_Size.z
+      value: 0.078972556
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295160555702116330, guid: 547400f6a54bcd444bab376ef8345a9d, type: 3}
       propertyPath: m_Center.x
       value: 0.001990093
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295160555702116330, guid: 547400f6a54bcd444bab376ef8345a9d, type: 3}
+      propertyPath: m_Center.z
+      value: -0.00017507002
       objectReference: {fileID: 0}
     - target: {fileID: 7295160555702116330, guid: 547400f6a54bcd444bab376ef8345a9d, type: 3}
       propertyPath: m_IsTrigger
@@ -248,3 +260,5 @@ MonoBehaviour:
   _weight: 1
   _collider: {fileID: 0}
   _timeForMovePoint: 0.5
+  _delay: 1.5
+  _forceImpulse: 2.5

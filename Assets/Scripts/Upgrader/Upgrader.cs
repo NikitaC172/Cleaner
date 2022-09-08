@@ -44,7 +44,6 @@ public class Upgrader : MonoBehaviour
         {
             ChangedSize?.Invoke(deltaSize);
             _upgradeSize.Buy();
-            Debug.LogWarning("OkSize");
         }
     }
 
@@ -54,7 +53,6 @@ public class Upgrader : MonoBehaviour
         {
             ChangedSpeed?.Invoke(deltaSpeed);
             _upgradeSpeed.Buy();
-            Debug.LogWarning("OkSpeed");
         }
     }
 }

@@ -20,7 +20,6 @@ public class ItemHendler : MonoBehaviour
         }
 
         Invoke(nameof(CallEvent), delayCall);
-        //ChangedMaxItems?.Invoke(_items.Count);
     }
 
     private void OnDisable()

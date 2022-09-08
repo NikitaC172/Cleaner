@@ -17,14 +17,7 @@ public class UpgraderAbility : MonoBehaviour
     [SerializeField] private TMP_Text _textPercent;
     [SerializeField] private Button _buttonBuy;
 
-    //private Upgrader _upgrader;
-
     public event UnityAction<int, float> TryedBuy;
-
-    /*private void Awake()
-    {
-        _upgrader = _init.GetUpgrader();
-    }*/
 
     private void OnEnable()
     {
@@ -38,10 +31,11 @@ public class UpgraderAbility : MonoBehaviour
 
     public void Buy()
     {
+        int percent = 100;
         _currentLevel++;
         _slider.value += _stepUpgrade;
         _textPrice.text = $"{_prices[_currentLevel - 1]}";
-        float percentText = _slider.value * 100;
+        float percentText = _slider.value * percent;
         _textPercent.text = $"%{percentText}";
     }
 

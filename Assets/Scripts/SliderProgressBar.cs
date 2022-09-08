@@ -35,15 +35,15 @@ public class SliderProgressBar : MonoBehaviour
 
     private void SetMaxItem(int maxItem)
     {
-        Debug.LogWarning(maxItem);
         _maxItem = maxItem;
     }
 
     private void ChangeVolumeSlider(int weight)
     {
+        int percent = 100;
         _currentItemCollected++;
         float value = (float)_currentItemCollected / _maxItem;
-        float valuePercent = Mathf.RoundToInt(((float)_currentItemCollected / _maxItem)*100);
+        float valuePercent = Mathf.RoundToInt(((float)_currentItemCollected / _maxItem) * percent);
         _slider.value = value;
         _text.text = $"%{valuePercent}";
     }

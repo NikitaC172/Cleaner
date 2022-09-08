@@ -20,6 +20,7 @@ public class SliderWeight : MonoBehaviour
     private Hole _hole;
     private int _currentWeight = 1;
     private int _maxWeight = 30;
+    private bool _isFull = false;
 
     public event UnityAction Fulled;
     public event UnityAction Emted;
@@ -52,6 +53,7 @@ public class SliderWeight : MonoBehaviour
         _panel.OpenPanel(_panelWithNumbers);
         ChangeVolumeSlider(0);
         Emted?.Invoke();
+        _isFull = false;
     }
 
     private void ChangeVolumeSlider(int weight)
@@ -62,9 +64,10 @@ public class SliderWeight : MonoBehaviour
         _slider.value = value;
         _text.text = $"{_currentWeight}";
 
-        if (value <= 0)
+        if (value <= 0 && _isFull == false)
         {
             Fulled?.Invoke();
+            _isFull = true;
             _panel.ClosePanel(_panelWithNumbers);
             _panel.OpenPanel(_panelMax);
             _panel.OpenPanel(_panelGotoSell);

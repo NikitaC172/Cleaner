@@ -14,6 +14,8 @@ public class Cleaner : MonoBehaviour
     [SerializeField] private Collider _hole;
     [SerializeField] private int _offsetX;
     [SerializeField] private int _offsetZ;
+    [SerializeField] private float _scaleRatio = 1 / 3.5f;
+    [SerializeField] private float _delayRenderSecond;
 
     private int _pointX;
     private int _pointZ;
@@ -80,43 +82,16 @@ public class Cleaner : MonoBehaviour
             throw new System.Exception($"Нет основной текстуры на объекте {_gameObject}");
     }
 
-    private void FixedUpdate()
+
+    private void Update()
     {
-        //gameObject.transform.position.x
+        _pointX = (int)(_offsetX + transform.position.x - _gameObject.transform.position.x * _maskTexture.width * (_scaleRatio));
+        _pointZ = (int)(_offsetZ + transform.position.y - _gameObject.transform.position.z * _maskTexture.height * (_scaleRatio));
 
-
-        //int rayPointX = (int)(_offsetX /*+ transform.position.x*/ - _gameObject.transform.localPosition.x * _maskTexture.width);//_x;//(int)(gameObject.transform.position.x * _maskTexture.width);
-        //int rayPointY = (int)(_offsetZ /*+ transform.position.z*/ - _gameObject.transform.localPosition.z * _maskTexture.height);//_y;//(int)(gameObject.transform.position.y * _maskTexture.height);
-
-        //int rayPointX = (int)(_offsetX - _gameObject.transform.localPosition.x * _maskTexture.width);
-        //int rayPointY = (int)(_offsetZ - _gameObject.transform.localPosition.z * _maskTexture.height);
-
-        _pointX = (int)(_offsetX + transform.position.x - _gameObject.transform.position.x * _maskTexture.width * (1 / 3.5f));
-        _pointZ = (int)(_offsetZ + transform.position.y - _gameObject.transform.position.z * _maskTexture.height * (1 / 3.5f));
-
-        //int rayPointX = (int)(_offsetX );
-        //int rayPointY = (int)(_offsetZ  );
-
-        //DrawCircle(rayPointX, rayPointY);
         DrawCircle(_pointX, _pointZ);
-
         _maskTexture.Apply();
-
-
-
-        /*RaycastHit hit;
-
-        if (_collider.Raycast(_stageItem.Ray, out hit, 100f))
-        {
-            int rayPointX = (int)(hit.textureCoord.x * _maskTexture.width);
-            int rayPointY = (int)(hit.textureCoord.y * _maskTexture.height);
-
-            DrawCircle(rayPointX, rayPointY);
-
-            _maskTexture.Apply();
-        }*/
-
     }
+
 
     private void DrawCircle(int pointX, int pointY)
     {
